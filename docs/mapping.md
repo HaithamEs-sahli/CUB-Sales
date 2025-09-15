@@ -1,0 +1,1 @@
+# Mapping Notes (ER → SQL)
