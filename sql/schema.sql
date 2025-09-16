@@ -1,7 +1,3 @@
--- ========================
--- User table (base entity)
--- ========================
-
 DROP TABLE IF EXISTS user;
 
 CREATE TABLE user (
@@ -13,9 +9,7 @@ CREATE TABLE user (
   updated_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================
--- ISA #1: User specializations
--- ============================
+
 
 DROP TABLE IF EXISTS admin_user;
 DROP TABLE IF EXISTS student_user;
@@ -37,9 +31,6 @@ CREATE TABLE student_user (
     ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- Listing table (base entity)
--- ========================
 
 DROP TABLE IF EXISTS listing;
 
@@ -58,9 +49,7 @@ CREATE TABLE listing (
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================
--- ISA #2: Listing specializations
--- ============================
+
 
 DROP TABLE IF EXISTS sales_listing;
 DROP TABLE IF EXISTS housing_listing;
@@ -87,10 +76,6 @@ CREATE TABLE housing_listing (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- ========================
--- Category table
--- ========================
-
 DROP TABLE IF EXISTS category;
 
 CREATE TABLE category (
@@ -100,9 +85,6 @@ CREATE TABLE category (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- ====================================
--- Junction: listing ↔ category (M:N)
--- ====================================
 
 DROP TABLE IF EXISTS listing_category;
 
@@ -118,9 +100,7 @@ CREATE TABLE listing_category (
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ==================================
--- Junction: user ↔ listing (favorite)
--- ==================================
+
 
 DROP TABLE IF EXISTS favorite;
 
@@ -137,9 +117,6 @@ CREATE TABLE favorite (
     ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- Contact table (base entity)
--- ========================
 
 DROP TABLE IF EXISTS contact;
 
@@ -158,9 +135,6 @@ CREATE TABLE contact (
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- =================================
--- ISA #3: Contact specializations
--- =================================
 
 DROP TABLE IF EXISTS email_contact;
 DROP TABLE IF EXISTS phone_contact;
