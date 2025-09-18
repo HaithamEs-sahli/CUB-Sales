@@ -9,6 +9,6 @@ Repo for schema, ER diagrams, and docs.
 ## Repo Layout
 
 - sql/ → SQL schema + test data
-- docs/ → mapping notes and PDFs + ER diagrams
+- mapping/ → mapping notes and PDFs + ER diagrams
 
 
