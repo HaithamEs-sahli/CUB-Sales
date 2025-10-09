@@ -6,7 +6,7 @@ Thumbs.db
 
 # LaTeX auxiliary files
 *.aux
-*.log
+# *.log
 *.out
 *.toc
 *.synctex.gz
