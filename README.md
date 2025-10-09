@@ -1,6 +1,6 @@
 # Groupe project Members :
 
-Haitham Es-sahli, Yasine Soliman and Fatima Fares .
+Haitham Es-sahli, Yassin Soliman and Fatima Fares .
 
 # CUB Sales — Databases Project
 
