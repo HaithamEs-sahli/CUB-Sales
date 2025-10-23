@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Category</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container row">
+    <div class="brand">
+      <img src="img/logo.png" alt="CUB Sales logo">
+      <div class="name">CUB Sales</div>
+    </div>
+    <div class="userlinks">
+      <a href="index.html">Home</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="imprint.html">Imprint</a>
+    </div>
+  </div>
+</header>
+
+<main class="container" style="padding:40px 0;">
+  <h1>Add Category</h1>
+  <form action="backend/insert_category.php" method="post">
+
+    <label>Category Name</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Description</label><br>
+    <input type="text" name="description"><br><br>
+    
+    <button type="submit" class="btn">Submit</button>
+  </form>
+  <p style="margin-top:10px;"><a href="maintenance.html">← Back to Maintenance</a></p>
+</main>
+
+<footer class="footer">
+  <div class="copy">© 2025 CUB Sales — Constructor University Student Project</div>
+</footer>
+</body>
+</html>
