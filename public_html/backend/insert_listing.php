@@ -1,4 +1,9 @@
 <?php
+require __DIR__.'/../_db.php';
+require __DIR__.'/../auth_check.php';
+?>
+
+<?php
 require_once 'config.php';
 $errors = [];
 $poster_id = isset($_POST['poster_id']) ? trim($_POST['poster_id']) : null;

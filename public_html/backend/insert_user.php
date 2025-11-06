@@ -1,4 +1,8 @@
 <?php
+require __DIR__.'/../_db.php';
+require __DIR__.'/../auth_check.php';
+?>
+<?php
 require_once 'config.php';
 $errors = [];
 $netid = isset($_POST['netid']) ? trim($_POST['netid']) : null;

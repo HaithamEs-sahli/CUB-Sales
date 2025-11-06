@@ -1,4 +1,8 @@
 <?php
+require __DIR__.'/../_db.php';
+require __DIR__.'/../auth_check.php';
+?>
+<?php
 require_once 'config.php';
 $errors = [];
 $listing_id = isset($_POST['listing_id']) ? trim($_POST['listing_id']) : null;
