@@ -1,23 +1,48 @@
 <?php
-require __DIR__.'/_db.php';
+// Show PHP errors while debugging (you can remove these two lines later)
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+require __DIR__ . '/_db.php';
+
 $user_id = filter_input(INPUT_GET, 'user_id', FILTER_VALIDATE_INT);
-if (!$user_id) { http_response_code(400); exit('Bad user_id'); }
+if (!$user_id) {
+    http_response_code(400);
+    exit('Bad user_id');
+}
 
 $sql = "SELECT listing_id, title, price_decimal, status, created_at
         FROM listing
         WHERE poster_id = ?
         ORDER BY created_at DESC";
+
 $stmt = $mysqli->prepare($sql);
+if (!$stmt) {
+    http_response_code(500);
+    exit('SQL prepare error: ' . $mysqli->error);
+}
+
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
+
 $res = $stmt->get_result();
+if ($res === false) {
+    http_response_code(500);
+    exit('SQL execute error: ' . $stmt->error);
+}
 ?>
-<!doctype html><meta charset="utf-8"><title>Results: Listings by User</title>
+<!doctype html>
+<meta charset="utf-8">
+<title>Results: Listings by User</title>
 <link rel="stylesheet" href="style.css">
+
 <h1>Listings by User #<?= htmlspecialchars($user_id) ?></h1>
+
 <table border="1" cellpadding="6">
-  <tr><th>ID</th><th>Title</th><th>Price</th><th>Status</th><th>Created</th></tr>
-  <?php while($r = $res->fetch_assoc()): ?>
+  <tr>
+    <th>ID</th><th>Title</th><th>Price</th><th>Status</th><th>Created</th>
+  </tr>
+  <?php while ($r = $res->fetch_assoc()): ?>
     <tr>
       <td><?= (int)$r['listing_id'] ?></td>
       <td><?= htmlspecialchars($r['title']) ?></td>
@@ -27,4 +52,5 @@ $res = $stmt->get_result();
     </tr>
   <?php endwhile; ?>
 </table>
+
 <p><a href="search_form_1.php">← Back</a></p>
