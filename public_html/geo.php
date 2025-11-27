@@ -14,7 +14,7 @@ if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 }
 
 // Step 2: IP → Geolocation lookup using ipinfo.io
-$token = ''; // optional: add your ipinfo token here
+$token = ''; 
 
 // Function to check if IP is public (not private/reserved)
 function is_public_ip($ip) {
